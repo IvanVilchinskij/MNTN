@@ -189,7 +189,7 @@ window.addEventListener('DOMContentLoaded', function () {
           stratPosition = window.pageYOffset,
           differPositions = tragetPosition - stratPosition,
           windowHeight = document.documentElement.clientHeight,
-          distance = differPositions > windowHeight ? differPositions : tragetPosition,
+          distance = differPositions > windowHeight + stratPosition ? differPositions : tragetPosition,
           startTime = null;
       requestAnimationFrame(animation);
 
@@ -211,10 +211,12 @@ window.addEventListener('DOMContentLoaded', function () {
         timeElapsed /= duration / 2;
 
         if (timeElapsed < 1) {
+          console.log("stratPosition = ".concat(stratPosition, ", tragetPosition = ").concat(tragetPosition, ", distance = ").concat(distance));
           return distance / 2 * timeElapsed * timeElapsed + stratPosition;
         }
 
         timeElapsed--;
+        console.log("stratPosition = ".concat(stratPosition, ", tragetPosition = ").concat(tragetPosition, ", distance = ").concat(distance));
         return -(distance / 2) * (timeElapsed * (timeElapsed - 2) - 1) + stratPosition;
       }
     }
