@@ -179,7 +179,7 @@ window.addEventListener('DOMContentLoaded', function () {
       link.addEventListener('click', function (e) {
         e.preventDefault();
         var hash = this.href.replace(/[^#]*(.*)/, '$1');
-        smoothScroll(hash, 1500);
+        smoothScroll(hash, 1000);
       });
     });
 
@@ -187,7 +187,9 @@ window.addEventListener('DOMContentLoaded', function () {
       var target = document.querySelector(tr),
           tragetPosition = target.getBoundingClientRect().top,
           stratPosition = window.pageYOffset,
-          distance = tragetPosition > stratPosition ? tragetPosition - stratPosition : tragetPosition,
+          differPositions = tragetPosition - stratPosition,
+          windowHeight = document.documentElement.clientHeight,
+          distance = differPositions > windowHeight ? differPositions : tragetPosition,
           startTime = null;
       requestAnimationFrame(animation);
 
