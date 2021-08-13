@@ -196,6 +196,7 @@ body {
   position: fixed;
   z-index: 49;
   top: 27%;
+  right: 0;
   font-weight: 700;
   font-size: 18px;
   line-height: 122.22222%;
@@ -1152,6 +1153,12 @@ body {
 
   .descr {
     font-size: 18px;
+  }
+}
+
+@media (min-width: 1921px) {
+  .navigation {
+    right: calc((100vw - 1920px)/2 + 4.69%);
   }
 }
 
